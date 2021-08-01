@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# InstaMeme
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A gallery website for exploring and creating memes that cares about user-experience.
 
-## Available Scripts
+[>>View the site!](https://instameme-7d4c3.web.app/)
+![summary](https://github.com/ChingHsun/InstaMeme/raw/master/media/summary.png)
 
-In the project directory, you can run:
+## Technologies
 
-### `yarn start`
+- Front-End
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  - RWD
+  - ReactJS / React Hooks / Custom Hooks
+  - React Router
+  - Redux / redux-thunk / redux-logger
+  - Intersection Observer API
+  - React Window / React Window Infinite Loader
+  - Formik / Yup
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- UI
 
-### `yarn test`
+  - Styled Components
+  - Chakra UI
+  - React Animation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Canvas
 
-### `yarn build`
+  - Fabric JS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Firebase
+  - Authentication
+  - Storage
+  - Firestore
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Flow Chart
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![FlowChart](https://github.com/ChingHsun/InstaMeme/raw/master/media/flowchart.png)
 
-### `yarn eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Browse Memes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Browse memes and select themes or change order, and design different UI for mobile devices.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Meme Detail:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - Common Feature:
 
-## Learn More
+    - Open meme detail will update the view count of meme
+    - add comment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - Desktop or Tablet:
+    - Preview memes information and click to browse more details.
+    - Popout the meme modal and change the router, while close the modal than go back to orginal router.
+    - If refresh the page will go to the meme page.
+  - Mobile:
+    - Click plus button for more detail, and the close button to flip back
+    - Control the cards that could only flip one
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Save Meme:
+  - Choose a category to save, or the catogory of "all"
+  - Add the new category if you want
+  - Change the save button, and update the save count for the meme information
 
-### Code Splitting
+### Create Meme
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Browse all template to create your meme
 
-### Analyzing the Bundle Size
+- Add your text on the template
+- Adjust your text style such as color, size, stroke, text align, background and so on.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Add your own signature for your meme
 
-### Making a Progressive Web App
+- Done and name your meme:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  - Publish in public and choose at most 3 themes
 
-### Advanced Configuration
+  - Download privately to your own device
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Create Template
 
-### Deployment
+- Upload your own picture (you could click or drag image) and name your template
+- Design your intial text box for the template
+- Upload template and alert users that template could not be delete
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### User
 
-### `yarn build` fails to minify
+- Login/SignUp
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Profile page for saved memes and created memes
+- Change your profile and picture
+- Delete saved memes for all category
+- Delete saved memes in certain category but still saved
+- Delete memes you create
+
+### Search
+
+- Search for memes and templates
+
+## Future Features
+
+Add Facebook/Google account login
+Add next meme button for meme modal
+Adopt Next.js to have better reduce loading time and get better SEO
+Add more function for creating meme such as upload image
+
+## Contact
+
+Feel free to contact me if you have any questions.
+E-mail: carol331536@gmail.com
