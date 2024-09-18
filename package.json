@@ -28,7 +28,7 @@
     "react-redux": "^7.2.4",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.1",
     "react-window": "^1.8.6",
     "react-window-infinite-loader": "^1.0.7",
     "redux": "^4.1.0",
@@ -64,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^7.28.0",
     "eslint-config-react-app": "^7.0.1"
   }
