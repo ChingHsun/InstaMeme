@@ -59,7 +59,6 @@ const Create = () => {
 
   const { canvasData, textChange, img, isZoom } = useCanvas(containerRef, {
     image: null,
-    template: template,
   });
   const { templateId } = useParams();
   const [textInput, setTextInput] = useState({});

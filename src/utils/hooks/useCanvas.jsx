@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { fabric } from "fabric";
 import { useSelector } from "react-redux";
 
-const useCanvas = (containerRef, { image, template }) => {
+const useCanvas = (containerRef, { image }) => {
   const isMobile = useSelector((state) => state.device.isMobile);
+  const template = useSelector((state) => state.selectedTemplate);
 
   const [finalCanvas, setFinalCanvas] = useState({
     canvasData: null,
@@ -77,7 +78,11 @@ const useCanvas = (containerRef, { image, template }) => {
       });
       const ratio = isMobile ? 1 : 2;
       isZoom && zoomCanvas(ratio, canvas);
-      setFinalCanvas({ ...finalCanvas, canvasData: canvas, img: f_img });
+      setFinalCanvas((prev) => ({
+        ...prev,
+        canvasData: canvas,
+        img: f_img,
+      }));
     };
   };
 
@@ -112,12 +117,13 @@ const useCanvas = (containerRef, { image, template }) => {
       const ratio = isMobile ? 1 : 2;
       isZoom && zoomCanvas(ratio, canvas);
       canvas.renderAll();
-      setFinalCanvas({
-        ...finalCanvas,
+      setFinalCanvas((prev) => ({
+        ...prev,
         canvasData: canvas,
         img: img,
         isZoom: isZoom,
-      });
+        ui: "success",
+      }));
     }
   };
   useEffect(() => {
