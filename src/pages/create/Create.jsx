@@ -52,27 +52,34 @@ const StyledCanvaImg = styled(Box)`
   }
 `;
 const Create = () => {
+  const [ui, setUi] = useState("loading");
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const templates = useSelector((state) => state.templates);
   const template = useSelector((state) => state.selectedTemplate);
   const containerRef = useRef();
 
-  const { canvasData, textChange, img, isZoom } = useCanvas(containerRef, {
-    image: null,
-  });
+  const { canvasData, textChange, img, isZoom, canvasUi } = useCanvas(
+    containerRef,
+    {
+      image: null,
+      ui,
+    }
+  );
   const { templateId } = useParams();
   const [textInput, setTextInput] = useState({});
   const dispatch = useDispatch();
   const authUser = useSelector((state) => state.auth);
   const [textSettings, setTextSettings] = useState({});
-  const [ui, setUi] = useState("loading");
   const isTablet = useSelector((state) => state.device.isTablet);
   const isMobile = useSelector((state) => state.device.isMobile);
 
   useEffect(() => {
-    console.log("getTemplate useEffect", templateId);
-    getTemplate();
+    getTemplate().then((e) => {
+      setUi("success");
+    });
   }, [templateId]);
+
   useEffect(() => {
     if (canvasData) {
       if (isMobile) {
@@ -110,7 +117,7 @@ const Create = () => {
     });
     setTextInput({ ...initTextInput });
     setTextSettings({ ...initTextSettings });
-    if (canvasData) setUi("success");
+    // if (canvasData) setUi("success");
   }, [canvasData]);
   useEffect(() => {
     textChange &&
@@ -339,24 +346,24 @@ const Create = () => {
             </Box>
           </Flex>
           <StyledCanvaImg flexBasis="600px">
-            {ui === "loading" && (
-              <Center>
-                <Spinner
-                  thickness="4px"
-                  speed="0.65s"
-                  emptyColor="gray.200"
-                  color="brand.blue"
-                  size="xl"
-                  marginTop={5}
-                />
-              </Center>
-            )}
             {templateId && (
               <Box
                 className="canvas__container"
                 key={templateId}
                 ref={containerRef}
               >
+                {canvasUi === "loading" && (
+                  <Center>
+                    <Spinner
+                      thickness="4px"
+                      speed="0.65s"
+                      emptyColor="gray.200"
+                      color="brand.blue"
+                      size="xl"
+                      marginTop={5}
+                    />
+                  </Center>
+                )}
                 <canvas id="canvas"></canvas>
               </Box>
             )}

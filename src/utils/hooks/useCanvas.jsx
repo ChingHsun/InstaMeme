@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fabric } from "fabric";
 import { useSelector } from "react-redux";
 
-const useCanvas = (containerRef, { image }) => {
+const useCanvas = (containerRef, { image, ui }) => {
   const isMobile = useSelector((state) => state.device.isMobile);
   const template = useSelector((state) => state.selectedTemplate);
 
@@ -10,7 +10,9 @@ const useCanvas = (containerRef, { image }) => {
     canvasData: null,
     textChange: null,
     img: null,
+    canvasUi: "loading",
   });
+
   const getImageFromUrl = (imageUrl) => {
     return new Promise((resolve, reject) => {
       if (imageUrl && containerRef.current) {
@@ -122,13 +124,13 @@ const useCanvas = (containerRef, { image }) => {
         canvasData: canvas,
         img: img,
         isZoom: isZoom,
-        ui: "success",
+        canvasUi: "success",
       }));
     }
   };
   useEffect(() => {
-    if (containerRef.current) settingCanvas();
-  }, [template, image]);
+    if (ui === "success" && containerRef.current) settingCanvas();
+  }, [template, image, ui]);
 
   return {
     ...finalCanvas,
