@@ -121,7 +121,6 @@ const CreateTemplate = () => {
 
   const { canvasData, textChange, img } = useCanvas(containerRef, {
     image: image,
-    template: null,
   });
   const [templateData, setTemplateData] = useState({
     created_time: null,
