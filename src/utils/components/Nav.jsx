@@ -147,7 +147,7 @@ const Nav = () => {
               />
               <Input
                 borderRadius="full"
-                placeholder="搜尋梗圖或模板"
+                placeholder="搜梗圖或模板"
                 onClick={() => handleModalUi("search")}
               />
             </InputGroup>
