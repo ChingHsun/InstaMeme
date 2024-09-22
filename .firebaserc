@@ -1,5 +1,6 @@
 {
   "projects": {
-    "staging": "instameme-7d4c3"
+    "staging": "instameme-7d4c3",
+    "default": "instameme-7d4c3"
   }
 }
